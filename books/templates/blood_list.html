@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    {% if books%}
+        <ul>
+            {% for book in books %}
+                <li>
+                    <strong>{{ book.title|upper }}</strong> by {{ book.author.name }} <sub>published on  <b>({{ book.publication_date|date:"F j, Y" }})</b> </sub></br>
+                   <p> {{book.description|truncatewords:20}}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <h1>Book List is Empty</h1>
+    {% endif %}
+</body>
+</html>

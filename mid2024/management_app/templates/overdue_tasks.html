@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overdue Tasks</title>
+</head>
+<body>
+    <h1>Overdue Tasks</h1>
+    <ul>
+        {% for task in overdue_tasks %}
+            <li><strong>{{ task.title }}</strong> - Due on {{ task.due_date }}: {{ task.description }}</li>
+        {% empty %}
+            <p>No overdue tasks at the moment.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

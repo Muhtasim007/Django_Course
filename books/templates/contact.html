@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% comment %}
+    <style>
+      input[name="name"] {
+        width: 50%;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        background-color: blue;
+      }
+    </style>
+    {% endcomment %}
+  </head>
+  <body>
+    <h1>Contact Us</h1>
+    <form method="post">
+      {% csrf_token %} 
+      {% comment %} {{ form.as_p }} {% endcomment %} 
+      <div
+        class="m-4 p-2 w-[30vw] bg-slate-100 flex flex-col justify-center items-center"
+      >
+        <input
+          class="w-[200px] text-red-400 border-1 border-red-500 bg-slate-200"
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+        /><br />
+        <input
+          class="w-[200px] text-red-400 border-1 border-red-500 bg-slate-200"
+          type="text"
+          name="email"
+          placeholder="Enter your Email"
+        /><br />
+        <input
+          class="w-[200px] text-red-400 border-1 border-red-500 bg-slate-200"
+          type="text"
+          name="message"
+          placeholder="Enter Text"
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
+    {% if form.errors %}
+    <p style="color: red">Please correct the errors below.</p>
+    {% endif %}
+  </body>
+</html>
